@@ -1,0 +1,2 @@
+# homebrew-hexdb
+HexDB Homebrew
