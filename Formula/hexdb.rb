@@ -7,28 +7,28 @@
 class Hexdb < Formula
   desc "Document database with REST, GraphQL, SQL, replication and an admin UI"
   homepage "https://hexdb-website.vercel.app"
-  version "1.6.0"
+  version "2.0.0"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
       url "https://github.com/dreaminhex/hexdb/releases/download/v#{version}/hexdb-v#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "3cbbe2560aed50b09231e7c6e99105d8d586836dcec1fb2b7042c7e619618f0b"
+      sha256 "9233e93b5394874d2ecf92c669d7ed0ff4292111be26b305020c102d3d6e8186"
     end
     on_intel do
       url "https://github.com/dreaminhex/hexdb/releases/download/v#{version}/hexdb-v#{version}-x86_64-apple-darwin.tar.gz"
-      sha256 "0bc3bb8768a7927a2a587ca273e1aab917955496f237437def9fb46e6b342bd2"
+      sha256 "37edc15062e008ae436806c059a92e8f47ce8067e3d8c00fcb9fe38372a9b92f"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/dreaminhex/hexdb/releases/download/v#{version}/hexdb-v#{version}-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "a6990218cfe9413d2aeac7adf81a7bc6348bcdbd557ad988a6d31c574a5e479e"
+      sha256 "7c0786aae3fa26dde672b7f1e82afff1926d9110e93f2447444e2b66216d4a44"
     end
     on_intel do
       url "https://github.com/dreaminhex/hexdb/releases/download/v#{version}/hexdb-v#{version}-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "44113b76a62b3e4bb95d927ee56ccb112fad647eb16bd40cca0bf05e7f4c4db4"
+      sha256 "fe821c1bc20886e20cfb595a2655e6e4cba091409c71cbe08dc63f4f7ee1fae6"
     end
   end
 
@@ -52,8 +52,8 @@ class Hexdb < Formula
     unless local.exist?
       key = Utils.safe_popen_read(bin/"hexdb", "secret").strip
       odie "hexdb secret printed no key" unless key.start_with?("base64:")
-      local.write "[storage]\nencryption_key = \"#{key}\"\n"
-      local.chmod 0600
+      # Created private (0600), so the key is never readable by others.
+      File.open(local, File::WRONLY | File::CREAT | File::EXCL, 0600) { |f| f.write "[storage]\nencryption_key = \"#{key}\"\n" }
     end
   end
 
