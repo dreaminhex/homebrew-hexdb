@@ -6,29 +6,29 @@
 # so the copy here only needs editing when the formula itself changes.
 class Hexdb < Formula
   desc "Document database with REST, GraphQL, SQL, replication and an admin UI"
-  homepage "https://hexdb-website.vercel.app"
-  version "2.1.2"
+  homepage "https://hexdb.app"
+  version "2.1.3"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
       url "https://github.com/dreaminhex/hexdb/releases/download/v#{version}/hexdb-v#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "d282c98f054f4adf84810bd72ffb339e9bddfcd12969c14cfa9e589e13f43b10"
+      sha256 "671b65255fc31e0129aebc832dd8c340ab08c5cad4a19e70551a84b786f7f365"
     end
     on_intel do
       url "https://github.com/dreaminhex/hexdb/releases/download/v#{version}/hexdb-v#{version}-x86_64-apple-darwin.tar.gz"
-      sha256 "522e23a8b4ba10104ac31dfeefd77959d8799688dfa1c36c73eff1641ba8ec1e"
+      sha256 "a459af4eaec3c847a0867bb79ba38b514eab945526f98b3729b7ef872f2eca21"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/dreaminhex/hexdb/releases/download/v#{version}/hexdb-v#{version}-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "9fa5e4e6926ee744227b07d2b071d00e5e213cf299d8ece7a79423d9b84b2f17"
+      sha256 "e3dbcb8dd5c1b7a1a59a5fa253d2858bfb53cb7659e247b380db916d15159f6c"
     end
     on_intel do
       url "https://github.com/dreaminhex/hexdb/releases/download/v#{version}/hexdb-v#{version}-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "68a0e2eaa0b89e52936dab8b1480f75b36b7b0ff3eb609d00eb2a7c5c282ead4"
+      sha256 "430c0a2523fe01c470fec5cf0eac879428ff730d252f10c8d78eaa8017f46a33"
     end
   end
 
