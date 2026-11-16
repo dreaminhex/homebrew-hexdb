@@ -7,28 +7,28 @@
 class Hexdb < Formula
   desc "Document database with REST, GraphQL, SQL, replication and an admin UI"
   homepage "https://hexdb.app"
-  version "2.5.5"
+  version "2.5.6"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
       url "https://github.com/dreaminhex/hexdb/releases/download/v#{version}/hexdb-v#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "509949f23f7cf9613d64e9c38a355ee51cf9887ac01367ed84b74318d121744b"
+      sha256 "9265afd8a8da5c8f57486af6be6193023cd13fbf690306f748005e869fd69025"
     end
     on_intel do
       url "https://github.com/dreaminhex/hexdb/releases/download/v#{version}/hexdb-v#{version}-x86_64-apple-darwin.tar.gz"
-      sha256 "df19ee33dd20545f65d040517a26a78d477fba8bf098104b2d0dcf73e406b9a0"
+      sha256 "ffec530f2279cbf248107ba6f51e6b4ba9bb38d774773c62f9be559d0ccff22b"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/dreaminhex/hexdb/releases/download/v#{version}/hexdb-v#{version}-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "7fbcb398a851844665b2b5bc0e8286818270767b10f94fe54cf3a757a837551c"
+      sha256 "b63337f6015964928b70402c9f0d1615ba5787dd3ed298a476d9feeaae1deeb4"
     end
     on_intel do
       url "https://github.com/dreaminhex/hexdb/releases/download/v#{version}/hexdb-v#{version}-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "51140772fc132462038c6b96d05bc5ba76a7eee725971a6a99753390ffa5d251"
+      sha256 "94e24792f9338e273c2ce2530be3f551fa3209845e2de3488ca71b2c6d21ae20"
     end
   end
 
